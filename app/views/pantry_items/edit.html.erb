@@ -1,0 +1,167 @@
+<% if @pantry_item.errors.any? %>
+  <% @pantry_item.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h1>Edit Pantry Item #<%= @pantry_item.id %></h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_pantry_item/<%= @pantry_item.id %>" class="form-horizontal">
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="col-sm-2 control-label">
+          User
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @pantry_item.user_id %>">
+        </div>
+      </div>
+
+      <!-- Label and input for item_id -->
+      <div class="form-group">
+        <label for="item_id" class="col-sm-2 control-label">
+          Item
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="item_id" name="item_id" placeholder="Item" class="form-control" value="<%= @pantry_item.item_id %>">
+        </div>
+      </div>
+
+      <!-- Label and input for expiration_date -->
+      <div class="form-group">
+        <label for="expiration_date" class="col-sm-2 control-label">
+          Expiration date
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="expiration_date" name="expiration_date" placeholder="Expiration date" class="form-control" value="<%= @pantry_item.expiration_date %>">
+        </div>
+      </div>
+
+      <!-- Label and input for purchase_date -->
+      <div class="form-group">
+        <label for="purchase_date" class="col-sm-2 control-label">
+          Purchase date
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="purchase_date" name="purchase_date" placeholder="Purchase date" class="form-control" value="<%= @pantry_item.purchase_date %>">
+        </div>
+      </div>
+
+      <!-- Label and input for consumption_speed -->
+      <div class="form-group">
+        <label for="consumption_speed" class="col-sm-2 control-label">
+          Consumption speed
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="consumption_speed" name="consumption_speed" placeholder="Consumption speed" class="form-control" value="<%= @pantry_item.consumption_speed %>">
+        </div>
+      </div>
+
+      <!-- Label and input for recurring -->
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label for="recurring">
+              <input type="checkbox" id="recurring" name="recurring" value="1" <%= "checked" if @pantry_item.recurring %>>
+              Recurring
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <input type="submit" value="Update Pantry Item" class="btn btn-primary">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-offset-3 col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Edit Pantry Item #<%= @pantry_item.id %></h3>
+      </div>
+      <div class="panel-body">
+        <form action="/update_pantry_item/<%= @pantry_item.id %>" class="form-horizontal">
+          <!-- Label and input for user_id -->
+          <div class="form-group">
+            <label for="user_id" class="col-sm-2 control-label">
+              User
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @pantry_item.user_id %>">
+            </div>
+          </div>
+
+          <!-- Label and input for item_id -->
+          <div class="form-group">
+            <label for="item_id" class="col-sm-2 control-label">
+              Item
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="item_id" name="item_id" placeholder="Item" class="form-control" value="<%= @pantry_item.item_id %>">
+            </div>
+          </div>
+
+          <!-- Label and input for expiration_date -->
+          <div class="form-group">
+            <label for="expiration_date" class="col-sm-2 control-label">
+              Expiration date
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="expiration_date" name="expiration_date" placeholder="Expiration date" class="form-control" value="<%= @pantry_item.expiration_date %>">
+            </div>
+          </div>
+
+          <!-- Label and input for purchase_date -->
+          <div class="form-group">
+            <label for="purchase_date" class="col-sm-2 control-label">
+              Purchase date
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="purchase_date" name="purchase_date" placeholder="Purchase date" class="form-control" value="<%= @pantry_item.purchase_date %>">
+            </div>
+          </div>
+
+          <!-- Label and input for consumption_speed -->
+          <div class="form-group">
+            <label for="consumption_speed" class="col-sm-2 control-label">
+              Consumption speed
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="consumption_speed" name="consumption_speed" placeholder="Consumption speed" class="form-control" value="<%= @pantry_item.consumption_speed %>">
+            </div>
+          </div>
+
+          <!-- Label and input for recurring -->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label for="recurring">
+                  <input type="checkbox" id="recurring" name="recurring" value="1" <%= "checked" if @pantry_item.recurring %>>
+                  Recurring
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <input type="submit" value="Update Pantry Item" class="btn btn-primary">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
