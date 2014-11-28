@@ -5,6 +5,6 @@ class Item < ActiveRecord::Base
   has_many :pantry_items
 
   validates :name, :uniqueness => { :scope => :description }
-  validates :upc, :uniqueness
+  # validates :upc, :uniqueness => true
 
 end
