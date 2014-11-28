@@ -19,15 +19,6 @@
       </div>
       <div class="panel-body">
         <form action="/create_item" class="form-horizontal">
-          <!-- Label and input for upc -->
-          <div class="form-group">
-            <label for="upc" class="col-sm-2 control-label">
-              UPC
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="upc" name="upc" placeholder="Upc" class="form-control" value="<%= @item.upc %>">
-            </div>
-          </div>
 
           <!-- Label and input for name -->
           <div class="form-group">
@@ -55,7 +46,7 @@
               Category
             </label>
             <div class="col-sm-10">
-              <input type="text" id="category_id" name="category_id" placeholder="Category" class="form-control" value="<%= @item.category_id %>">
+              <%= select_tag(:category_id, options_from_collection_for_select(Category.all, :id, :name), :class => "form-control") %>
             </div>
           </div>
 
