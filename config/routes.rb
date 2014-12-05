@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get('/pantry_items', { :controller => 'pantry_items', :action => 'index' })
   get('/pantry_items/:id', { :controller => 'pantry_items', :action => 'show' })
 
+  # To show the grocery list
+  get('/grocery_list', { :controller => 'pantry_items', :action => 'show_list' })
+
   # UPDATE
   get('/pantry_items/:id/edit', { :controller => 'pantry_items', :action => 'edit' })
   get('/update_pantry_item/:id', { :controller => 'pantry_items', :action => 'update' })

@@ -1,0 +1,45 @@
+<div class="page-header">
+  <h1>Grocery List</h1>
+</div>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Expiration date</th>
+      <th>Purchase date</th>
+      <th>Consumption speed</th>
+      <th>Recurring</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @grocery_list_items.each do |grocery_list_item| %>
+      <tr>
+        <td><%= grocery_list_item.item.name %></td>
+        <td><%= grocery_list_item.expiration_date %></td>
+        <td><%= grocery_list_item.purchase_date %></td>
+        <td><%= grocery_list_item.consumption_speed %></td>
+        <td><%= grocery_list_item.recurring %></td>
+        <td>
+          <a href="/pantry_items/<%= grocery_list_item.id %>" class="btn btn-primary">
+            <i class="fa fa-search-plus"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/pantry_items/<%= grocery_list_item.id %>/edit" class="btn btn-warning">
+            <i class="fa fa-edit"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/delete_pantry_item/<%= grocery_list_item.id %>" class="btn btn-danger">
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -3,6 +3,10 @@ class PantryItemsController < ApplicationController
     @pantry_items = PantryItem.where({ :user_id => current_user.id })
   end
 
+  def show_list
+    @grocery_list_items = PantryItem.where({ :user_id => current_user.id })
+  end
+
   def show
     @pantry_item = PantryItem.find(params[:id])
   end
