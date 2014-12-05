@@ -1,6 +1,6 @@
 class PantryItemsController < ApplicationController
   def index
-    @pantry_items = PantryItem.all
+    @pantry_items = PantryItem.where({ :user_id => current_user.id })
   end
 
   def show

@@ -7,7 +7,6 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>User</th>
       <th>Item</th>
       <th>Expiration date</th>
       <th>Purchase date</th>
@@ -22,7 +21,6 @@
   <tbody>
     <% @pantry_items.each do |pantry_item| %>
       <tr>
-        <td><%= pantry_item.user_id %></td>
         <td><%= pantry_item.item.name %></td>
         <td><%= pantry_item.expiration_date %></td>
         <td><%= pantry_item.purchase_date %></td>
