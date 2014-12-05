@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  get('/', { :controller => 'users', :action => 'index' })
+  devise_for :users
+  root 'users#index'
   # Routes for the Pantry_item resource:
   # CREATE
   get('/pantry_items/new', { :controller => 'pantry_items', :action => 'new' })
