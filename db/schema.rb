@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141205155142) do
+ActiveRecord::Schema.define(version: 20141205195908) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20141205155142) do
     t.date     "expiration_date"
     t.date     "purchase_date"
     t.integer  "consumption_speed"
-    t.boolean  "recurring"
+    t.boolean  "recurring",         default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

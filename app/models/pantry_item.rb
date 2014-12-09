@@ -7,6 +7,14 @@ class PantryItem < ActiveRecord::Base
   validates :item_id, :presence => true
   validates :purchase_date, :presence => true
   validates :consumption_speed, :presence => true
-  validates :recurring, :presence => true
+  validates :recurring, inclusion: { in: [true, false] }
 
+  def expired
+    if self.item.category.perishable?
+      return true if self.expiration_date < Date.today
+      false
+    else
+      return false
+    end
+  end
 end

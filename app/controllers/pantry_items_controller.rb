@@ -1,10 +1,17 @@
 class PantryItemsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @pantry_items = PantryItem.where({ :user_id => current_user.id })
   end
 
   def show_list
-    @grocery_list_items = PantryItem.where({ :user_id => current_user.id })
+    @grocery_list_items = PantryItem.where({ :user_id => current_user.id, :recurring => true })
+  end
+
+  def last_trip
+    @last_trip_date = PantryItem.where({ :user_id => current_user.id }).distinct(:purchase_date).pluck(:purchase_date).sort.last
+    @last_trip_items = PantryItem.where({ :user_id => current_user.id, :purchase_date => @last_trip_date })
   end
 
   def show

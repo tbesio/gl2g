@@ -18,28 +18,30 @@
 
   <tbody>
     <% @grocery_list_items.each do |grocery_list_item| %>
-      <tr>
-        <td><%= grocery_list_item.item.name %></td>
-        <td><%= grocery_list_item.expiration_date %></td>
-        <td><%= grocery_list_item.purchase_date %></td>
-        <td><%= grocery_list_item.consumption_speed %></td>
-        <td><%= grocery_list_item.recurring %></td>
-        <td>
-          <a href="/pantry_items/<%= grocery_list_item.id %>" class="btn btn-primary">
-            <i class="fa fa-search-plus"></i>
-          </a>
-        </td>
-        <td>
-          <a href="/pantry_items/<%= grocery_list_item.id %>/edit" class="btn btn-warning">
-            <i class="fa fa-edit"></i>
-          </a>
-        </td>
-        <td>
-          <a href="/delete_pantry_item/<%= grocery_list_item.id %>" class="btn btn-danger">
-            <i class="fa fa-trash-o"></i>
-          </a>
-        </td>
-      </tr>
+      <% if grocery_list_item.expired %>
+        <tr>
+          <td><%= grocery_list_item.item.name %></td>
+          <td><%= grocery_list_item.expiration_date %></td>
+          <td><%= grocery_list_item.purchase_date %></td>
+          <td><%= grocery_list_item.consumption_speed %></td>
+          <td><%= grocery_list_item.recurring %></td>
+          <td>
+            <a href="/pantry_items/<%= grocery_list_item.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+          </td>
+          <td>
+            <a href="/pantry_items/<%= grocery_list_item.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+          </td>
+          <td>
+            <a href="/delete_pantry_item/<%= grocery_list_item.id %>" class="btn btn-danger">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

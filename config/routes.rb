@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   # To show the grocery list
   get('/grocery_list', { :controller => 'pantry_items', :action => 'show_list' })
 
+  # To show your last trip
+  get('/last_trip', { :controller => 'pantry_items', :action => 'last_trip' })
+
   # UPDATE
   get('/pantry_items/:id/edit', { :controller => 'pantry_items', :action => 'edit' })
   get('/update_pantry_item/:id', { :controller => 'pantry_items', :action => 'update' })
