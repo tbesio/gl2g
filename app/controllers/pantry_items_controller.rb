@@ -2,7 +2,7 @@ class PantryItemsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @pantry_items = PantryItem.where({ :user_id => current_user.id })
+    @pantry_items = PantryItem.where({ :user_id => current_user.id }).order("purchase_date DESC")
   end
 
   def show_list
