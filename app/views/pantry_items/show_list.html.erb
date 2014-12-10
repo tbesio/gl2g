@@ -18,7 +18,7 @@
 
   <tbody>
     <% @grocery_list_items.each do |grocery_list_item| %>
-      <% if grocery_list_item.expired %>
+      <% if grocery_list_item.need_to_replace %>
         <tr>
           <td><%= grocery_list_item.item.name %></td>
           <td><%= grocery_list_item.expiration_date %></td>
