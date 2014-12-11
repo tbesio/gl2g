@@ -3,8 +3,8 @@ class PantryItem < ActiveRecord::Base
   belongs_to :item
   belongs_to :user
 
-  validates :user_id, :presence => true
-  validates :item_id, :presence => true
+  validates :user, :presence => true
+  validates :item, :presence => true
   validates :purchase_date, :presence => true
   validates :consumption_speed, :presence => true
   validates :recurring, inclusion: { in: [true, false] }
