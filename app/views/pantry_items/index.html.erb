@@ -8,8 +8,8 @@
   <thead>
     <tr>
       <th>Item</th>
-      <th>Expiration date</th>
-      <th>Purchase date</th>
+      <th>Expiration Date</th>
+      <th>Purchase Date</th>
       <th>Days to Consume</th>
       <th>Recurring</th>
       <th></th>
@@ -22,8 +22,8 @@
     <% @pantry_items.each do |pantry_item| %>
       <tr>
         <td><%= pantry_item.item.name %></td>
-        <td><%= pantry_item.expiration_date %></td>
-        <td><%= pantry_item.purchase_date %></td>
+        <td><%= pantry_item.expiration_date.strftime('%b %e') %></td>
+        <td><%= pantry_item.purchase_date.strftime('%b %e') %></td>
         <td><%= pantry_item.consumption_speed %></td>
         <td><%= pantry_item.recurring ? "Yes" : "No" %></td>
         <td>
