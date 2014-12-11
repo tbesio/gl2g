@@ -4,10 +4,10 @@
 
 <dl class="dl-horizontal">
   <dt>Expiration date</dt>
-  <dd><%= @pantry_item.expiration_date %></dd>
+  <dd><%= @pantry_item.expiration_date.strftime('%b %e') %></dd>
 
   <dt>Purchase date</dt>
-  <dd><%= @pantry_item.purchase_date %></dd>
+  <dd><%= @pantry_item.purchase_date.strftime('%b %e') %></dd>
 
   <dt>Days to Consume</dt>
   <dd><%= @pantry_item.consumption_speed %></dd>
