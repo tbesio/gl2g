@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="jumbotron">
+      <h1>Grocery List 2 Go</h1>
+      <h3>Never be caught without your list again.</h3>
+      <!-- TODO: Design and insert a logo -->
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <% if !current_user.present? %>
+          <h3>Have you ever been...</h3>
+          <h4> on your way to the grocery store and realized that you forgot your list? </h4>
+          <h4> on your way home from work and wondered if the milk is expired? </h4>
+          <p>&nbsp;</p>
+          <h3>If you answered yes to any of these questions, we have a solution for you!</h3>
+          <p>&nbsp;</p>
+          <h4>I'm ready to sign up!
+            <a href="/users/sign_up" class="btn btn-success">
+              Sign Up &nbsp; <i class="fa fa-sign-in"></i>
+            </a>
+          </h4>
+        <% else %>
+          <h3>Thanks for being a member! We appreciate your support.</h3>
+          <h4>Start using your empowered grocery list &nbsp;
+            <a href="/grocery_list" class="btn btn-success">
+              Grocery List
+            </a>
+          </h4>
+        <% end %>
+      </div>
+    </div>
+  </div>

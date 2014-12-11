@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root 'users#index'
+  root 'landing_page#main'
+
+  # Landing page
+  get('/landing_page', { :controller => 'landing_page', :action => "main" })
+
   # Routes for the Pantry_item resource:
   # CREATE
   get('/pantry_items/new', { :controller => 'pantry_items', :action => 'new' })

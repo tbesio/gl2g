@@ -38,18 +38,18 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/pantry_items">Pantry Items</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Lists <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="/grocery_list">Grocery List</a></li>
-            <li><a href="/last_trip">Last Trip</a></li>
-          </ul>
-        </li>
-        <li><a href="/categories">Categories</a></li>
-        <li><a href="/items">Items</a></li>
-        <li><a href="/users">Users</a></li>
-        <li><a href="#">About</a></li>
+        <% if current_user.present? %>
+          <li><a href="/pantry_items">Pantry Items</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Lists <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="/grocery_list">Grocery List</a></li>
+              <li><a href="/last_trip">Last Trip</a></li>
+            </ul>
+          </li>
+          <li><a href="/categories">Categories</a></li>
+          <li><a href="/items">Items</a></li>
+        <% end %>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
