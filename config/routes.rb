@@ -35,11 +35,11 @@ Rails.application.routes.draw do
   get('/categories/:id', { :controller => 'categories', :action => 'show' })
 
   # UPDATE
-  get('/categories/:id/edit', { :controller => 'categories', :action => 'edit' })
-  get('/update_category/:id', { :controller => 'categories', :action => 'update' })
+  # get('/categories/:id/edit', { :controller => 'categories', :action => 'edit' })
+  # get('/update_category/:id', { :controller => 'categories', :action => 'update' })
 
   # DELETE
-  get('/delete_category/:id', { :controller => 'categories', :action => 'destroy' })
+  # get('/delete_category/:id', { :controller => 'categories', :action => 'destroy' })
   #------------------------------
 
   # Routes for the Item resource:
