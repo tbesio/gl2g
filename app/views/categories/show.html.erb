@@ -1,12 +1,17 @@
 <div class="page-header">
-  <h1>Category #<%= @category.id %></h1>
+  <h1><%= @category.name %></h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt>Name</dt>
-  <dd><%= @category.name %></dd>
-
   <dt>Perishable</dt>
-  <dd><%= @category.perishable %></dd>
+  <dd><%= @category.perishable ? "Yes" : "No" %></dd>
 
+  <dt>Items in Category</dt>
+  <% if @category.items.length == 0 %>
+    <dd>None</dd>
+  <% else %>
+    <% @category.items.each do |category_item| %>
+      <dd><%= category_item.name+" - "+category_item.description %></dd>
+    <% end %>
+  <% end %>
 </dl>
