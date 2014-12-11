@@ -47,13 +47,16 @@
 </table>
 
 <div class="row">
-  <div class="col-md-offset-1 col-md-10">
-    <div class="btn-group-vertical" role="group" style="width:95%">
-      <button type="button" class="btn btn-primary">Here's What You Need</button>
-      <a href="#" class="btn btn-default" role="button">Lettuce - 1 Package</a>
-      <a href="#" class="btn btn-default" role="button">Celery - 1 Bunch</a>
-      <button type="button" class="btn btn-default">Milk - 1 Bottle</button>
-      <button type="button" class="btn btn-default">... - ...</button>
+  <div class="col-md-12">
+    <div class="list-group">
+      <h4 class="list-group-item list-group-item-success">Here's What You Need</h4>
+      <% @grocery_list_items.each do |grocery_list_item| %>
+        <% if grocery_list_item.need_to_replace %>
+          <a href="/pantry_items/<%= grocery_list_item.id %>" class="list-group-item">
+            <%= grocery_list_item.item.name+" - "+grocery_list_item.item.description %>
+          </a>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
