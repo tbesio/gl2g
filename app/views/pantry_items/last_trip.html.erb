@@ -1,45 +1,12 @@
-<div class="page-header">
-  <h1>Last Trip - <%= @last_trip_date.strftime('%A, %B %e') %></h1>
+<div class="row">
+  <div class="col-md-12">
+    <div class="list-group">
+      <h4 class="list-group-item list-group-item-success">Last Trip - <%= @last_trip_date.strftime('%A, %B %e') %></h4>
+      <% @last_trip_items.each do |last_trip_item| %>
+        <a href="/pantry_items/<%= last_trip_item.id %>" class="list-group-item">
+          <%= last_trip_item.item.name+" - "+last_trip_item.item.description %>
+        </a>
+      <% end %>
+    </div>
+  </div>
 </div>
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Item</th>
-      <th>Expiration date</th>
-      <th>Purchase date</th>
-      <th>Consumption speed</th>
-      <th>Recurring</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @last_trip_items.each do |last_trip_item| %>
-      <tr>
-        <td><%= last_trip_item.item.name %></td>
-        <td><%= last_trip_item.expiration_date %></td>
-        <td><%= last_trip_item.purchase_date %></td>
-        <td><%= last_trip_item.consumption_speed %></td>
-        <td><%= last_trip_item.recurring %></td>
-        <td>
-          <a href="/pantry_items/<%= last_trip_item.id %>" class="btn btn-primary">
-            <i class="fa fa-search-plus"></i>
-          </a>
-        </td>
-        <td>
-          <a href="/pantry_items/<%= last_trip_item.id %>/edit" class="btn btn-warning">
-            <i class="fa fa-edit"></i>
-          </a>
-        </td>
-        <td>
-          <a href="/delete_pantry_item/<%= last_trip_item.id %>" class="btn btn-danger">
-            <i class="fa fa-trash-o"></i>
-          </a>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>

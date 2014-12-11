@@ -51,7 +51,7 @@
       <!-- Label and input for consumption_speed -->
       <div class="form-group">
         <label for="consumption_speed" class="col-sm-2 control-label">
-          Consumption Speed
+          Days to Consume
         </label>
         <div class="col-sm-10">
           <input type="text" id="consumption_speed" name="consumption_speed" placeholder="Consumption speed" class="form-control" value="<%= @pantry_item.consumption_speed %>">
@@ -64,13 +64,14 @@
           Recurring?
         </label>
         <div class="col-sm-10">
-          <%= select_tag(:recurring, options_for_select({"Y" => "1", "N" => "0"}, :selected => @pantry_item.recurring), :class => "form-control") %>
+          <%= select_tag(:recurring, options_for_select({"Yes" => "1", "No" => "0"}, :selected => @pantry_item.recurring), :class => "form-control") %>
         </div>
       </div>
 
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
           <input type="submit" value="Update Pantry Item" class="btn btn-primary">
+          <a href="/pantry_items" class="btn btn-danger">Cancel</a>
         </div>
       </div>
     </form>
